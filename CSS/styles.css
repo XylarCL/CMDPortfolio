@@ -33,13 +33,16 @@ body {
 /*#region*/
 .terminal {
     margin: 2rem;
-    padding: 2rem;
+    padding: 2rem 2rem 0 2rem;
     height: 30%;  /* fixed height */
     overflow: hidden;
+    display: flex;
+    flex-direction: column-reverse;
 }
 
 .terminal-input {
     display: flex;
+    margin-bottom: auto;
 }
 
 .terminal-input-line {

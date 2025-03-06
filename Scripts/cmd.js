@@ -3,7 +3,7 @@ const terminalInput = document.getElementById('js-terminal-input');
 const terminalOutput = document.getElementById('js-terminal-output');
 const contentDiv = document.getElementById('js-content');
 const commandInput = document.getElementById('js-command');
-let maxLines = maxLinesFunc();
+
 
 commandInput.addEventListener('keypress', function(e) {
     if (e.key === 'Enter') {
@@ -13,33 +13,7 @@ commandInput.addEventListener('keypress', function(e) {
     }
 });
 
-// On orientation change work out maxLines again (since height will have changed)
-window.addEventListener("orientationchange", () => {
-    // Needs timeout to work properly
-    setTimeout(() => {
-        maxLines = maxLinesFunc()
-    })
-});
 
-// Function to work out maximum lines based on screen height and width
-function maxLinesFunc() {
-    const terminalHeight = terminalContainer.offsetHeight;
-    const terminalInputHeight = terminalInput.offsetHeight;
-    const paddingHeight = getComputedStyle(terminalContainer).getPropertyValue("padding").replace("px", "");
-    const useableHeight = terminalHeight - terminalInputHeight - paddingHeight;
-    let wrapModifier;
-
-    // Wrap modifier is a temp fix for dealing with maxLines and wrapping on mobile. Ruins lines getting deleted nicely and required hardcoded cutoffs.
-    if(window.screen.width < 500) {
-        wrapModifier = 2;
-    } else if(window.screen.width < 329) {
-        wrapModifier = 3
-    }
-
-    let totalLines = Math.floor((useableHeight/19.5)/wrapModifier)
-
-    return totalLines;
-}
 
 function handleCommand(command) {
 
@@ -79,52 +53,8 @@ function addOutput(text) {
     newOutput.className = 'terminal-output';
     newOutput.textContent = text;
     terminalOutput.appendChild(newOutput);
-
-    // Remove lines until within maxLines limit
-    removeLines(countLines());
 }
 
-// Function to count the number of lines
-function countLines() {
-    let numLines = 0;
-    for(let i=0; i < terminalOutput.children.length; i++) {
-        numLines += terminalOutput.children[i].innerHTML.split(/\n/).length;
-    }
-    return numLines;
-}
-
-// Remove Lines
-function removeLines(numLines) {
-    if(numLines > maxLines) {
-        let firstChildText = terminalOutput.firstChild.innerHTML;
-
-        // Get total number of lines in the first Child
-        let firstChildLen = firstChildText.split(/\n/).length;
-
-        // If the number of lines to be deleted is less than the number of lines in the first element
-        if(firstChildLen >= (numLines-maxLines)) {
-
-            // Then split the first element around new lines
-            firstChildText = firstChildText.split(/\n/);
-
-            // Take the lines required
-            firstChildText = firstChildText.slice(numLines-maxLines, firstChildLen);
-
-            // Add the paragraph spaces back in
-            for(let i=0; i<firstChildText.length-1; i++) {
-                firstChildText[i] = firstChildText[i] + "\n";
-            }
-            // Join into a string and set it as the html
-            terminalOutput.firstChild.innerHTML = firstChildText.join("");
-            
-        }
-        // Otherwise just remove the child and call the function again to check enough lines have been removed
-        else {
-            terminalOutput.removeChild(terminalOutput.firstChild);
-            removeLines(countLines());
-        }
-    }
-}
 
 // Pages
 function loadProfile() {
