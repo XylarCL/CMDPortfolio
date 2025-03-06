@@ -21,7 +21,7 @@ function handleCommand(command) {
     addOutput(`$ ${command}`);
     switch (command.toLowerCase()) {
         case 'help':
-            addOutput("Commands:\n - profile\n - portfolio\n - projects\n - photos\n - games");
+            addOutput("Commands:\n - profile\n - portfolio\n - projects");
             break;
         case 'profile':
             addOutput("Loading profile...");
@@ -34,14 +34,6 @@ function handleCommand(command) {
         case 'projects':
             addOutput("Loading projects...");
             contentDiv.innerHTML = "<h2>Personal Projects</h2><p>Details about my projects here...</p>";
-            break;
-        case 'photos':
-            addOutput("Loading photos...");
-            contentDiv.innerHTML = "<h2>Photos</h2><p>My gallery here...</p>";
-            break;
-        case 'games':
-            addOutput("Loading games...");
-            contentDiv.innerHTML = "<h2>Games</h2><p>My game projects here...</p>";
             break;
         default:
             addOutput("Unknown command. Type 'help' for available commands.");
@@ -60,28 +52,32 @@ function addOutput(text) {
 function loadProfile() {
     contentDiv.innerHTML = `
         <h2>My Profile</h2>
-        <p>Name: </p>
-        <p>Contact: </p> 
-        <p>Description: </p>
+        <p>Name: Example Name Here</p>
+        <p>Contact: xxxxxxxxxxxxx</p> 
+        <p>Description: 
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Sed iaculis quam consectetur, vestibulum risus at, dapibus quam. 
+        Cras sed leo eu justo sagittis tristique sed et ipsum. Morbi purus risus, convallis scelerisque nibh non, eleifend vulputate lectus. 
+        </p>
 
         <h3>Skills</h3>
-        <h4>Programming Languages</h4>£@£
+        <h4>Programming Languages</h4>
         <ul>
-            <li>...</li>
-            <li>...</li>
-            <li>...</li>
-            <li>...</li>
+            <li>Ruby</li>
+            <li>C#</li>
+            <li>Python</li>
+            <li>Rust</li>
         </ul>
         <h4>Frameworks</h4>
         <ul>
-            <li>...</li>
+            <li>Node</li>
         </ul>
         <h4>Tools</h4>
         <ul>
-            <li>...</li>
-            <li>...</li>
-            <li>...</li>
-            <li>...</li>
+            <li>CRT</li>
+            <li>Captcha</li>
+            <li>Visual Studio Code</li>
+        <ul>
     `;    
 }
 

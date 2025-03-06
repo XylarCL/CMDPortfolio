@@ -67,6 +67,24 @@ body {
 .content {
     margin: 2rem;
     padding: 2rem;
+    max-width: 75ch;
+}
+
+h2, h3 {
+    padding-block: 1rem 0.25rem;
+}
+
+h4 {
+    padding-block: 0.5rem 0;
+}
+
+p {
+    padding-block: 0.2rem;
+    line-height: 1.4;
+}
+
+ul {
+    padding-left: 1.5rem;
 }
 /*#endregion*/
 /* End Output Styling */
