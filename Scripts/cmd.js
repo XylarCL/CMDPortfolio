@@ -84,64 +84,48 @@ function loadProfile() {
 function loadPortfolio() {
     contentDiv.innerHTML = `
     <h2>Portfolio</h2>
-    <p>Name: Example Name Here</p>
-    <p>Contact: xxxxxxxxxxxxx</p> 
+
+    <h3>Project One</h3>
     <p>Description: 
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
     Sed iaculis quam consectetur, vestibulum risus at, dapibus quam. 
     Cras sed leo eu justo sagittis tristique sed et ipsum. Morbi purus risus, convallis scelerisque nibh non, eleifend vulputate lectus. 
     </p>
+    <h4>Features</h4>
+    <ul>
+        <li>SEO</li>
+        <li>Procedural Generation</li>
+        <li>3D Mapping</li>
+    </ul>
 
-    <h3>Skills</h3>
-    <h4>Programming Languages</h4>
+    <h3>Project Two</h3>
+    <p>Description: 
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+    Sed iaculis quam consectetur, vestibulum risus at, dapibus quam. 
+    Cras sed leo eu justo sagittis tristique sed et ipsum. Morbi purus risus, convallis scelerisque nibh non, eleifend vulputate lectus. 
+    </p>
+    <h4>Features</h4>
     <ul>
-        <li>Ruby</li>
-        <li>C#</li>
-        <li>Python</li>
-        <li>Rust</li>
+        <li>Structural degredation</li>
+        <li>Ecosystems</li>
+        <li>Life cycle</li>
     </ul>
-    <h4>Frameworks</h4>
-    <ul>
-        <li>Node</li>
-    </ul>
-    <h4>Tools</h4>
-    <ul>
-        <li>CRT</li>
-        <li>Captcha</li>
-        <li>Visual Studio Code</li>
-    <ul>
+
 `;    
 }
 
 function loadProjects() {
     contentDiv.innerHTML = `
     <h2>Personal Projects</h2>
-    <p>Name: Example Name Here</p>
-    <p>Contact: xxxxxxxxxxxxx</p> 
     <p>Description: 
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-    Sed iaculis quam consectetur, vestibulum risus at, dapibus quam. 
-    Cras sed leo eu justo sagittis tristique sed et ipsum. Morbi purus risus, convallis scelerisque nibh non, eleifend vulputate lectus. 
+    This is a space for all of my personal projects!
     </p>
 
-    <h3>Skills</h3>
-    <h4>Programming Languages</h4>
     <ul>
-        <li>Ruby</li>
-        <li>C#</li>
-        <li>Python</li>
-        <li>Rust</li>
+        <li>Tree Generation</li>
+        <li>AI Enemies</li>
+        <li>Block Fragmentation</li>
     </ul>
-    <h4>Frameworks</h4>
-    <ul>
-        <li>Node</li>
-    </ul>
-    <h4>Tools</h4>
-    <ul>
-        <li>CRT</li>
-        <li>Captcha</li>
-        <li>Visual Studio Code</li>
-    <ul>
 `;    
 }
 
